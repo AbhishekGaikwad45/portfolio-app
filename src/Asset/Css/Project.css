@@ -1,0 +1,18 @@
+.snapshot {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+  border: 1px solid #ccc;
+}
+
+.snapshot:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+ a{
+  color: white;
+  padding: '10px 20px';
+  border-Radius: '5px';
+  text-decoration: none;
+  background-color: red;
+}
