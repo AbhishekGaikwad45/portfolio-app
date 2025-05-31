@@ -82,6 +82,12 @@ strong{
   .text-content {
     text-align: center;
   }
+  .social{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
 
   .back {
     margin-top: 20px;
@@ -101,7 +107,7 @@ strong{
 
 @keyframes typing {
   from { width: 0 }
-  to { width: 62% }
+  to { width: 78% }
 }
 
 @keyframes blink {
