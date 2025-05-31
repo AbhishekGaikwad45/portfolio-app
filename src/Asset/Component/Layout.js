@@ -47,7 +47,7 @@ function Layout() {
           <h5>Follow Me</h5>
           <div className="d-flex justify-content-center gap-2 mb-4">
             <Button variant="secondary" size="sm">
-              <a href="https://www.linkedin.com/in/abhishek-gaikwad-246/" target="_blank" rel="noreferrer" style={{ color: 'white' }}>
+              <a href="https://www.linkedin.com/in/abhishek-gaikwad-b6819731b/" target="_blank" rel="noreferrer" style={{ color: 'white' }}>
                 <LinkedInIcon />
               </a>
             </Button>
@@ -55,7 +55,7 @@ function Layout() {
               <EmailOutlinedIcon />
             </Button>
             <Button variant="secondary" size="sm">
-              <a href="https://github.com/dashboard" target="_blank" rel="noreferrer" style={{ color: 'white' }}>
+              <a href="https://github.com/AbhishekGaikwad45" target="_blank" rel="noreferrer" style={{ color: 'white' }}>
                 <GitHubIcon />
               </a>
             </Button>
