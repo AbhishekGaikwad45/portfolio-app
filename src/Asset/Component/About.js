@@ -22,6 +22,7 @@ function About() {
             <li>CSS3</li>
             <li>javascript</li>
             <li>Bootstrap</li>
+            <li>JQuery</li>
           </ul>
           
           
@@ -43,7 +44,7 @@ function About() {
         <div className='col-6'>
           <ul>
             
-            <li>Git</li>
+            <li>GitHub</li>
            
             
           </ul>
@@ -52,7 +53,7 @@ function About() {
           </div>
           <div className='col-6'>
            <ul>
-             <li>GitHub</li>
+             
             
            
           </ul>
