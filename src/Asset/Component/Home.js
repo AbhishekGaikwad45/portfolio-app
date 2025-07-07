@@ -6,6 +6,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
+
 function Home() {
   return (
     <div className='home container-fluid'>
@@ -41,6 +42,7 @@ function Home() {
 
         </div>
       </div>
+      
     </div>
   );
 }
