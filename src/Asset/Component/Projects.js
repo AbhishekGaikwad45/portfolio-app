@@ -15,6 +15,12 @@ import snap12 from '../Images/loginpage.png';
 import snap13 from '../Images/Signuppage.png';
 import snap14 from '../Images/wetherHome.png';
 import snap15 from '../Images/wether.png';
+import snap16 from '../Images/Teacher Register.png';
+import snap17 from '../Images/Teacher login.png';
+import snap18 from '../Images/Mark Attendence.png';
+import snap19 from '../Images/Add student.png';
+import snap20 from '../Images/Class wise Attendence.png';
+
 
 
 
@@ -112,6 +118,30 @@ function Projects() {
        <div className="mt-4 link">
   <a
     href="https://weather-app-one-eta-14.vercel.app/"
+    target="_blank"
+    rel="noreferrer"
+    className='button'
+    style={{ color: 'white', backgroundColor: 'green', padding: '10px 20px', borderRadius: '5px', textDecoration: 'none' }}
+  >
+    Visit Project
+  </a>
+</div>
+
+
+<div className="row g-4 mt-3">
+        {[snap16, snap17,snap18,snap19,snap20].map((image, index) => (
+          <div className="col-12 col-sm-6 col-lg-6" key={index}>
+            <img
+              src={image}
+              className="img-fluid rounded shadow snapshot w-100"
+              alt={`Screenshot ${index + 1}`}
+            />
+          </div>
+        ))}
+      </div>
+       <div className="mt-4 link">
+  <a
+    href="https://github.com/AbhishekGaikwad45/Attendence-Manegement-System"
     target="_blank"
     rel="noreferrer"
     className='button'
