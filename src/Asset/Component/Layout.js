@@ -3,7 +3,7 @@ import { Container, Row, Col,} from 'react-bootstrap';
 import '../Css/Layout.css';
 
 import ContactForm from './ContactForm';
-import logo from '../Images/Abhishek image.jpeg';
+import logo from '../Images/Abhishek new.jpg';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -42,7 +42,7 @@ function Layout() {
         <Col xs={12} md={3} className="sidebar text-center py-4">
           <img src={logo} alt="Logo" className="logo mb-3" />
           <h4>Abhishek Gaikwad</h4>
-          <h5 className="mb-4">Web Developer</h5>
+          <h5 className="mb-4">Full Stack Developer</h5>
 
           <h5>Follow Me</h5>
           <div className="d-flex justify-content-center gap-2 mb-4">

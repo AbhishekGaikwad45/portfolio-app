@@ -29,11 +29,14 @@ function About() {
           </div>
           <div className='col-6'>
            <ul>
+            <li> core Java</li>
             <li>C++</li>
             <li>ReactJs</li>
             <li>Node.js</li>
             <li>Express.js</li>
             <li>MongoDB</li>
+            
+           
           </ul>
           
           </div>
@@ -54,7 +57,7 @@ function About() {
           <div className='col-6'>
            <ul>
              
-            
+            <li>Tailwind CSS</li>
            
           </ul>
           
@@ -77,7 +80,7 @@ function About() {
         </div>
         <div className="col-12 col-sm-6 mb-3">
           <p><strong>Age:</strong> 23</p>
-          <p><strong>Degree:</strong> Graduation</p>
+          <p><strong>Degree:</strong>  Post Graduation</p>
           <p><strong>City:</strong> Pune</p>
         </div>
       </div>
