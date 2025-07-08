@@ -29,7 +29,7 @@ function About() {
           </div>
           <div className='col-6'>
            <ul>
-            <li> core Java</li>
+            <li> core java</li>
             <li>C++</li>
             <li>ReactJs</li>
             <li>Node.js</li>
