@@ -35,6 +35,7 @@ function About() {
             <li>Node.js</li>
             <li>Express.js</li>
             <li>MongoDB</li>
+            <li>MySQL</li>
             
            
           </ul>
