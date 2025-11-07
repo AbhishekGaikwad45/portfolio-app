@@ -15,6 +15,8 @@ import Button from '@mui/material/Button';
 import InfoIcon from '@mui/icons-material/Info';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
+import SkillsShowcase from './SkillsShowcase';
 
 
 function Layout() {
@@ -28,7 +30,11 @@ function Layout() {
         return <About />;
       case "project":
         return <Projects />;
-      case "Contact":
+
+        case "Skills":
+        return <SkillsShowcase />;
+      
+        case "Contact":
         return <ContactForm />;
       default:
         return <Home />;
@@ -65,6 +71,7 @@ function Layout() {
             <Button variant="outline-light" startIcon={<HomeIcon/>} onClick={() => setActiveComponent("home")}>Home</Button>
             <Button variant="outline-light" startIcon={<InfoIcon/>} onClick={() => setActiveComponent("About")}>About</Button>
             <Button variant="outline-light" startIcon={<AccountTreeIcon/>} onClick={() => setActiveComponent("project")}>Projects</Button>
+             <Button variant="outline-light" startIcon={<EmojiEmotionsIcon/>} onClick={() => setActiveComponent("Skills")}>Skills</Button>
             <Button variant="outline-light" startIcon={<ContactMailIcon/>} onClick={() => setActiveComponent("Contact")}>Contact Me</Button>
           </div>
         </Col>

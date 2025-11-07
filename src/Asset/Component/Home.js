@@ -28,7 +28,7 @@ function Home() {
           
             
           </div>
-         <a href='/Abhishek Gaikwad  MERN.pdf' target="_blank" rel="noopener noreferrer">
+         <a href='/Abhishek Gaikwad .pdf' target="_blank" rel="noopener noreferrer">
          <button className='btn btn-success ms-5 mt-2'>View Resume</button>
          </a>
 
