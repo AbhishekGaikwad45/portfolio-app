@@ -42,7 +42,7 @@ function Layout() {
         <Col xs={12} md={3} className="sidebar text-center py-4">
           <img src={logo} alt="Logo" className="logo mb-3" />
           <h4>Abhishek Gaikwad</h4>
-          <h5 className="mb-4">Web Developer</h5>
+          <h5 className="mb-4">Full Stack Developer</h5>
 
           <h5>Follow Me</h5>
           <div className="d-flex justify-content-center gap-2 mb-4">
