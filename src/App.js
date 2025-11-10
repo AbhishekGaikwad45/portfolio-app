@@ -24,8 +24,8 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<ContactForm />} />
           
-        </Routes> 
-        <Footer/> */}
+        </Routes>  */}
+        {/* <Footer/> */}
       </BrowserRouter>
     </div>
   );

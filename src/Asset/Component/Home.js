@@ -6,6 +6,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
+
 function Home() {
   return (
     <div className='home container-fluid'>
@@ -27,11 +28,11 @@ function Home() {
           
             
           </div>
-         <a href='/Abhishek Gaikwad Resume.pdf' target="_blank" rel="noopener noreferrer">
+         <a href='/Abhishek Gaikwad .pdf' target="_blank" rel="noopener noreferrer">
          <button className='btn btn-success ms-5 mt-2'>View Resume</button>
          </a>
 
-
+    
 
 
         </div>
@@ -41,6 +42,7 @@ function Home() {
 
         </div>
       </div>
+      
     </div>
   );
 }

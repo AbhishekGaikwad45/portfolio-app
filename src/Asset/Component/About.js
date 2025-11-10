@@ -29,11 +29,15 @@ function About() {
           </div>
           <div className='col-6'>
            <ul>
+            <li> core java</li>
             <li>C++</li>
             <li>ReactJs</li>
             <li>Node.js</li>
             <li>Express.js</li>
             <li>MongoDB</li>
+            <li>MySQL</li>
+            
+           
           </ul>
           
           </div>
@@ -54,7 +58,7 @@ function About() {
           <div className='col-6'>
            <ul>
              
-            
+            <li>Tailwind CSS</li>
            
           </ul>
           
@@ -73,11 +77,11 @@ function About() {
         <div className="col-12 col-sm-6 mb-3">
           <p><strong>Birthday:</strong> 29 Sep 2001</p>
           <p><strong>Phone:</strong> +91 9665670540</p>
-          <p><strong>Email:</strong> gaikwadabhi246@gmail.com</p>
+          <p><strong>Email:</strong> abhishekgaikwad2766@gmail.com</p>
         </div>
         <div className="col-12 col-sm-6 mb-3">
           <p><strong>Age:</strong> 23</p>
-          <p><strong>Degree:</strong> Graduation</p>
+          <p><strong>Degree:</strong> Deploma in CS</p>
           <p><strong>City:</strong> Pune</p>
         </div>
       </div>

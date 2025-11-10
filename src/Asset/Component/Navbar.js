@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <header className="navbar">
       
-      <img src={logo} alt="Logo" className="logo1" />
+      <img src={logo} alt="Logo" className="Abhishek-logo" />
 
       <div
         className="menu-toggle"
