@@ -1,0 +1,19 @@
+.cert-card {
+  background-color: #1f1f1f;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(13, 110, 253, 0.6);
+}
+
+.cert-img {
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}

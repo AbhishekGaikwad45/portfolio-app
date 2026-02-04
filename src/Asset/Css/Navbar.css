@@ -1,0 +1,117 @@
+ /* Base styles */
+
+ *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.logo1{
+  
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+.text{
+  text-decoration: none;
+  color: white;
+}
+
+
+
+.navbar-links li a:hover {
+   color: #ffc107; 
+}
+ 
+ /* Hamburger menu   */
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly; /* Logo on left, links on right */
+  background:linear-gradient(-65deg,black,white);
+  color: white;
+  padding: 1rem 2rem;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo style */
+.logo1 {
+  width: 80px; /* Adjust size as needed */
+  height: 50px;
+  margin-left: 100px;
+  object-fit: cover;
+  border-radius: 50%; /* Optional: makes it circular */
+}
+
+/* Menu links */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  margin-left: auto;
+  margin-right: 50px;
+  
+}
+
+.text {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.navbar-links li a:hover {
+  color: #ffc107;
+}
+
+/* Hamburger menu toggle for mobile */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* Responsive: show hamburger and hide links */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    margin-top: 1rem;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-links li {
+    margin: 0.5rem 0;
+  }
+}
