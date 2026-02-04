@@ -3,7 +3,7 @@ import './App.css';
 
 
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, } from 'react-router-dom';
 import Layout from './Asset/Component/Layout';
 import { Toaster } from 'sonner';
 // import Home from './Asset/Component/Home';

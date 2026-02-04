@@ -1,6 +1,5 @@
 import React from 'react';
 import '../Css/Home.css';
-import { Button } from 'react-bootstrap';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -20,10 +19,10 @@ function Home() {
           <p className='ms-5'>creating visually appealing and user-friendly websites.</p>
 
           <div className='social mt-4 ms-5'>
-            <a href='https://www.linkedin.com/in/abhishek-gaikwad-b6819731b/' target="_blank"><LinkedInIcon className="icon" /></a>
-            <a href='https://www.facebook.com/abhishek.gaikwad.77736' target="_blank"><FacebookIcon className="icon" /></a>
-            <a href='https://www.instagram.com/abhishek_gaikwad_45/' target="_blank"> <InstagramIcon className="icon" /></a>
-            <a href='https://github.com/AbhishekGaikwad45' target="_blank"><GitHubIcon className="icon" /></a>
+            <a href='https://www.linkedin.com/in/abhishek-gaikwad-b6819731b/' target="_blank" rel="noopener noreferrer"><LinkedInIcon className="icon" /></a>
+            <a href='https://www.facebook.com/abhishek.gaikwad.77736' target="_blank" rel="noopener noreferrer"><FacebookIcon className="icon" /></a>
+            <a href='https://www.instagram.com/abhishek_gaikwad_45/' target="_blank" rel="noopener noreferrer"> <InstagramIcon className="icon" /></a>
+            <a href='https://github.com/AbhishekGaikwad45' target="_blank" rel="noopener noreferrer"><GitHubIcon className="icon" /></a>
 
 
 
