@@ -1,5 +1,4 @@
 /* Layout.css */
-
 .logo {
   width: 120px;
   height: 120px;
@@ -19,35 +18,60 @@
   color: #fff;
 }
 
-/* Sidebar - let Bootstrap's grid handle width/position, just style it */
+/* Sidebar - fixed in place, full height, scrolls internally if content overflows */
 .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100vh;
   background: linear-gradient(45deg, black, gray);
   color: white;
-  min-height: 100vh;
-  position: sticky;   /* stays visible on scroll, but stays in grid flow */
-  top: 0;
   overflow-y: auto;
+  scrollbar-width: thin;               /* Firefox: thin scrollbar */
+  scrollbar-color: #888 transparent;   /* Firefox: thumb / track colors */
+  padding: 20px;
+  z-index: 1000;
+}
+
+/* Sidebar's own scrollbar (Chrome/Edge/Safari) */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .main-content {
+  margin-left: 25%;
   min-height: 100vh;
   padding: 30px;
+  overflow-y: auto;
 }
 
 /* Responsive behavior */
 @media (max-width: 768px) {
   .sidebar {
     position: relative;
+    width: 100%;
     height: auto;
     text-align: center;
     padding: 20px 10px;
   }
   .main-content {
+    margin-left: 0;
     padding: 20px 10px;
   }
 }
 
-/* Scrollbar styling */
+/* Global page scrollbar styling */
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
