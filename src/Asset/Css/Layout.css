@@ -1,14 +1,10 @@
 /* Layout.css */
 
-
-
-
-
 .logo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
+  border-radius: 50%;
 }
 
 .topic button {
@@ -23,109 +19,48 @@
   color: #fff;
 }
 
-.main-content {
-  
-  min-height: 100vh;
-}
-
-
-@media (max-width: 768px) {
-  .sidebar {
-    text-align: center;
-    padding: 20px 10px;
-  }
-
-  .main-content {
-    padding: 20px 10px;
-  }
-}
-
-
-
-
-/* Layout.css */
-
-/* .layout-container {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-} */
-
-/* Sidebar styling */
+/* Sidebar - let Bootstrap's grid handle width/position, just style it */
 .sidebar {
-  position: fixed;
+  background: linear-gradient(45deg, black, gray);
+  color: white;
+  min-height: 100vh;
+  position: sticky;   /* stays visible on scroll, but stays in grid flow */
   top: 0;
-  left: 0;
-  width: 250px;
-  height: 100vh;
-  background:linear-gradient(45deg,black,gray);
-  color: white;
   overflow-y: auto;
-  padding: 20px;
-  z-index: 1000;
 }
 
-.logo {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.topic button {
-  font-size: 16px;
-  color: white;
-}
-
-.topic button:hover {
-  background-color: #333;
-}
-
-/* Main content shifts right */
 .main-content {
-  margin-left: 310px;
+  min-height: 100vh;
   padding: 30px;
-  width: calc(100% - 250px);
-  overflow-y: auto;
-  height: 100vh;
-  
 }
 
 /* Responsive behavior */
 @media (max-width: 768px) {
   .sidebar {
     position: relative;
-    width: 100%;
     height: auto;
+    text-align: center;
+    padding: 20px 10px;
   }
-
   .main-content {
-    margin-left: 0;
-    width: 100%;
+    padding: 20px 10px;
   }
 }
 
-
-/* Style the entire scrollbar */
+/* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 12px; /* for vertical scrollbars */
-  height: 12px; /* for horizontal scrollbars */
+  width: 12px;
+  height: 12px;
 }
-
-/* Style the track (background) */
 ::-webkit-scrollbar-track {
   background: #f0f0f0;
   border-radius: 10px;
 }
-
-/* Style the thumb (scroll handle) */
 ::-webkit-scrollbar-thumb {
   background-color: #888;
   border-radius: 10px;
   border: 3px solid #f0f0f0;
 }
-
-/* On hover */
 ::-webkit-scrollbar-thumb:hover {
   background-color: #555;
 }
