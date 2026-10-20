@@ -1,0 +1,385 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid layout-container p-0">
+  <div class="row g-0 layout-row min-vh-100">
+    
+    <!-- ==================== SIDEBAR ==================== -->
+    <aside class="col-12 col-lg-3 sidebar d-flex flex-column align-items-center text-center">
+      <div class="sidebar-top w-100">
+        <!-- Profile Avatar -->
+        <div class="avatar-wrapper mb-3">
+          <img
+            src="{{ photo_url }}"
+            alt="{{ profile.name }}"
+            class="logo mx-auto d-block"
+            onerror="this.onerror=null; this.src='/static/images/Abhishek image.jpeg';"
+          >
+        </div>
+
+        <!-- Name & Title -->
+        <h4 class="sidebar-name">{{ profile.name }}</h4>
+        <h5 class="sidebar-title mb-4">{{ profile.title }}</h5>
+
+        <!-- Social Icons -->
+        <h6 class="sidebar-heading">Follow Me</h6>
+        <div class="d-flex justify-content-center gap-2 mb-4 social-bar">
+          {% if profile.socialLinks.linkedin %}
+            <a href="{{ profile.socialLinks.linkedin }}" target="_blank" rel="noreferrer" class="btn-social" title="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          {% endif %}
+          <a href="#contact" class="btn-social nav-tab-trigger" data-target="tab-contact" title="Email Me">
+            <i class="bi bi-envelope"></i>
+          </a>
+          {% if profile.socialLinks.github %}
+            <a href="{{ profile.socialLinks.github }}" target="_blank" rel="noreferrer" class="btn-social" title="GitHub">
+              <i class="bi bi-github"></i>
+            </a>
+          {% endif %}
+          {% if profile.socialLinks.instagram %}
+            <a href="{{ profile.socialLinks.instagram }}" target="_blank" rel="noreferrer" class="btn-social" title="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+          {% endif %}
+        </div>
+
+        <!-- Navigation Buttons -->
+        <nav class="nav-topic d-grid gap-2 w-100">
+          <button class="btn btn-nav active" data-target="tab-home">
+            <i class="bi bi-house-door-fill me-2"></i> Home
+          </button>
+          <button class="btn btn-nav" data-target="tab-about">
+            <i class="bi bi-person-badge-fill me-2"></i> About
+          </button>
+          <button class="btn btn-nav" data-target="tab-projects">
+            <i class="bi bi-grid-fill me-2"></i> Projects
+          </button>
+          <button class="btn btn-nav" data-target="tab-contact">
+            <i class="bi bi-envelope-fill me-2"></i> Contact Me
+          </button>
+        </nav>
+      </div>
+
+      <!-- Secret Admin link on sidebar footer (subtle) -->
+      {% if is_admin %}
+        <div class="mt-auto pt-3 w-100">
+          <a href="{{ url_for('admin_dashboard') }}" class="btn btn-sm btn-outline-primary w-100">
+            <i class="bi bi-gear-fill me-1"></i> Admin Dashboard
+          </a>
+        </div>
+      {% endif %}
+    </aside>
+
+    <!-- ==================== MAIN SCROLLABLE CONTENT ==================== -->
+    <main class="col-12 col-lg-9 main-content">
+      
+      <!-- TAB 1: HOME -->
+      <section id="tab-home" class="portfolio-tab active">
+        <div class="home-hero">
+          <div class="hero-content">
+            <!-- Secret Admin trigger: clicking "Hello," -->
+            <a
+              href="{% if is_admin %}{{ url_for('admin_dashboard') }}{% else %}{{ url_for('login') }}{% endif %}"
+              class="greeting-clickable"
+              title="Click to open Admin Login"
+            >
+              {{ profile.greeting or 'Hello,' }}
+            </a>
+
+            <h1 class="hero-name">
+              I am <strong>{{ profile.displayName or 'Abhishek' }}</strong>
+            </h1>
+
+            <!-- Dynamic Typewriter Title -->
+            <div class="title-typewriter" id="typewriter-container" data-title="{{ profile.title or 'Full Stack Developer' }}">
+              <span id="typewriter-text"></span><span class="cursor-blink">|</span>
+            </div>
+
+            <!-- Intro Paragraphs -->
+            <div class="hero-intro my-3">
+              {% if profile.introLines %}
+                {% for line in profile.introLines %}
+                  <p class="intro-line">{{ line }}</p>
+                {% endfor %}
+              {% else %}
+                <p class="intro-line">I am a skilled and passionate web developer with experience in</p>
+                <p class="intro-line">creating visually appealing and user-friendly websites.</p>
+              {% endif %}
+            </div>
+
+            <!-- Social Links -->
+            <div class="hero-social d-flex gap-3 my-4">
+              {% if profile.socialLinks.linkedin %}
+                <a href="{{ profile.socialLinks.linkedin }}" target="_blank" rel="noreferrer" class="social-icon-btn" title="LinkedIn">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+              {% endif %}
+              {% if profile.socialLinks.facebook %}
+                <a href="{{ profile.socialLinks.facebook }}" target="_blank" rel="noreferrer" class="social-icon-btn" title="Facebook">
+                  <i class="bi bi-facebook"></i>
+                </a>
+              {% endif %}
+              {% if profile.socialLinks.instagram %}
+                <a href="{{ profile.socialLinks.instagram }}" target="_blank" rel="noreferrer" class="social-icon-btn" title="Instagram">
+                  <i class="bi bi-instagram"></i>
+                </a>
+              {% endif %}
+              {% if profile.socialLinks.github %}
+                <a href="{{ profile.socialLinks.github }}" target="_blank" rel="noreferrer" class="social-icon-btn" title="GitHub">
+                  <i class="bi bi-github"></i>
+                </a>
+              {% endif %}
+            </div>
+
+            <!-- Resume Button -->
+            <div class="hero-actions mt-3">
+              <a href="{{ resume_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-resume">
+                <i class="bi bi-file-earmark-pdf me-2"></i> View Resume
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: ABOUT -->
+      <section id="tab-about" class="portfolio-tab">
+        <div class="about-container">
+          <h1 class="section-title">About</h1>
+
+          <!-- Bio -->
+          <div class="about-bio mb-4">
+            {% if about.bio %}
+              {% for p in about.bio.split('\n\n') %}
+                <p class="bio-text">{{ p }}</p>
+              {% endfor %}
+            {% else %}
+              <p class="bio-text">
+                Hi, I'm <strong>Abhishek Gaikwad</strong>, a passionate and detail-oriented full-stack developer with a strong foundation in front-end and back-end technologies. I specialize in building responsive, user-friendly web applications using technologies like <strong>Python</strong>, <strong>Flask</strong>, <strong>React</strong>, <strong>Node.js</strong>, and <strong>PostgreSQL</strong>.
+              </p>
+            {% endif %}
+          </div>
+
+          <!-- Technical Skills (2 Columns) -->
+          <h2 class="section-subtitle mt-4 mb-3">Skills</h2>
+          {% set tech = skills.technical or [] %}
+          {% set half = ((tech|length) / 2)|round(0, 'ceil')|int %}
+          <div class="row g-3">
+            <div class="col-6">
+              <ul class="skill-list">
+                {% for s in tech[:half] %}
+                  <li class="skill-item">{{ s }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="skill-list">
+                {% for s in tech[half:] %}
+                  <li class="skill-item">{{ s }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <!-- Additional Skills -->
+          {% set add = skills.additional or [] %}
+          {% if add %}
+            <h2 class="section-subtitle mt-4 mb-3">Additional Skills</h2>
+            {% set add_half = ((add|length) / 2)|round(0, 'ceil')|int %}
+            <div class="row g-3">
+              <div class="col-6">
+                <ul class="skill-list">
+                  {% for s in add[:add_half] %}
+                    <li class="skill-item">{{ s }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+              <div class="col-6">
+                <ul class="skill-list">
+                  {% for s in add[add_half:] %}
+                    <li class="skill-item">{{ s }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- Personal Info & Visual Image -->
+          <div class="personal-info-card mt-5 p-4 rounded-4 shadow-sm">
+            <div class="row align-items-center g-4">
+              <div class="col-12 col-md-5 text-center">
+                <img
+                  src="{{ about_img }}"
+                  alt="Developer"
+                  class="img-fluid rounded-4 about-photo shadow-sm"
+                  onerror="this.onerror=null; this.src='/static/images/Devoloper.jpg';"
+                >
+              </div>
+              <div class="col-12 col-md-7">
+                <div class="row g-3">
+                  <div class="col-12 col-sm-6">
+                    <p class="info-line"><strong>Birthday:</strong> {{ about.personalDetails.birthday or '29 Sep 2001' }}</p>
+                    <p class="info-line"><strong>Phone:</strong> {{ about.personalDetails.phone or '+91 9665670540' }}</p>
+                    <p class="info-line"><strong>Email:</strong> {{ about.personalDetails.email or 'gaikwadabhi246@gmail.com' }}</p>
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <p class="info-line"><strong>Age:</strong> {{ about.personalDetails.age or '23' }}</p>
+                    <p class="info-line"><strong>Degree:</strong> {{ about.personalDetails.degree or 'Graduation' }}</p>
+                    <p class="info-line"><strong>City:</strong> {{ about.personalDetails.city or 'Pune' }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Work Experience -->
+          {% if experience %}
+            <div class="experience-section mt-5">
+              <h2 class="section-subtitle mb-3">Work Experience</h2>
+              <div class="d-flex flex-column gap-3">
+                {% for exp in experience %}
+                  <div class="card experience-card p-4 rounded-4 shadow-sm">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                      <h4 class="exp-role mb-0">{{ exp.role }}</h4>
+                      <span class="badge bg-primary px-3 py-2">{{ exp.duration }}</span>
+                    </div>
+                    <h6 class="exp-company text-primary mt-2">{{ exp.company }}</h6>
+                    <p class="exp-desc mt-2 mb-0">{{ exp.description }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- Education & Certifications -->
+          {% if education or certifications %}
+            <div class="row g-4 mt-4">
+              {% if education %}
+                <div class="col-12 col-lg-6">
+                  <h2 class="section-subtitle mb-3">Education</h2>
+                  <div class="d-flex flex-column gap-3">
+                    {% for edu in education %}
+                      <div class="card edu-card p-3 rounded-3 shadow-sm">
+                        <h5 class="edu-degree mb-1">{{ edu.degree }}</h5>
+                        <p class="edu-inst mb-0"><strong>{{ edu.institution }}</strong> ({{ edu.year }})</p>
+                        {% if edu.details %}
+                          <p class="edu-details text-muted mt-1 mb-0">{{ edu.details }}</p>
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if certifications %}
+                <div class="col-12 col-lg-6">
+                  <h2 class="section-subtitle mb-3">Certifications</h2>
+                  <div class="d-flex flex-column gap-3">
+                    {% for cert in certifications %}
+                      <div class="card cert-card p-3 rounded-3 shadow-sm">
+                        <h5 class="cert-name mb-1">{{ cert.name }}</h5>
+                        <p class="cert-issuer mb-0">{{ cert.issuer }} ({{ cert.year }})</p>
+                        {% if cert.credentialUrl %}
+                          <a href="{{ cert.credentialUrl }}" target="_blank" rel="noreferrer" class="btn btn-sm btn-outline-primary mt-2 align-self-start">
+                            View Credential
+                          </a>
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </section>
+
+      <!-- TAB 3: PROJECTS -->
+      <section id="tab-projects" class="portfolio-tab">
+        <div class="projects-container">
+          <h1 class="section-title mb-4">Projects</h1>
+
+          {% for proj in projects %}
+            <div class="project-block {% if not loop.first %}mt-5 pt-4 border-top{% endif %}">
+              <h3 class="project-title mb-2">{{ proj.title }}</h3>
+              {% if proj.description %}
+                <p class="project-desc mb-3">{{ proj.description }}</p>
+              {% endif %}
+
+              <!-- Screenshots Gallery -->
+              {% if proj.resolvedScreenshots %}
+                <h6 class="gallery-heading mt-3 mb-2 text-muted">Screenshots</h6>
+                <div class="row g-3">
+                  {% for shot in proj.resolvedScreenshots %}
+                    <div class="col-12 col-sm-6">
+                      <div class="screenshot-box">
+                        <img
+                          src="{{ shot }}"
+                          class="img-fluid rounded snapshot w-100"
+                          alt="{{ proj.title }} Screenshot {{ loop.index }}"
+                          loading="lazy"
+                        >
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+
+              <!-- Live Link Button -->
+              {% if proj.liveLink %}
+                <div class="mt-3">
+                  <a href="{{ proj.liveLink }}" target="_blank" rel="noreferrer" class="btn btn-visit-project">
+                    <i class="bi bi-box-arrow-up-right me-1"></i> Visit Project
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <!-- TAB 4: CONTACT -->
+      <section id="tab-contact" class="portfolio-tab">
+        <div class="contact-wrapper">
+          <div class="contact-card p-4 p-md-5 rounded-4 shadow-sm mx-auto">
+            <h2 class="contact-title text-center mb-4">Contact Me</h2>
+            
+            <div id="contact-alert" class="alert d-none" role="alert"></div>
+
+            <form id="contact-form" class="contact-form">
+              <div class="mb-3">
+                <label for="contact-name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="contact-name" name="name" placeholder="Your Name" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="contact-email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="contact-email" name="email" placeholder="Your Email" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="contact-phone" class="form-label">Phone</label>
+                <input type="tel" class="form-control" id="contact-phone" name="phone" placeholder="Your Phone Number">
+              </div>
+
+              <div class="mb-3">
+                <label for="contact-message" class="form-label">Message</label>
+                <textarea class="form-control" id="contact-message" name="message" rows="5" placeholder="Your Message" required></textarea>
+              </div>
+
+              <button type="submit" id="contact-submit-btn" class="btn btn-contact w-100">
+                <i class="bi bi-send-fill me-1"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
