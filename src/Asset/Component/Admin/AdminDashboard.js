@@ -33,7 +33,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import '../../Css/Admin.css';
 
 const AdminDashboard = () => {
-  const { portfolio, setPortfolio, refreshPortfolio, logout, adminUser } = usePortfolio();
+  const { portfolio, setPortfolio, logout, adminUser } = usePortfolio();
   const navigate = useNavigate();
 
   const [activeTab, setActiveTab] = useState('profile');

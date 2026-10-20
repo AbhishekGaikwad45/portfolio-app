@@ -75,7 +75,9 @@
 
 /* Desktop and Laptop (>= 992px) - Sidebar Locked, Main Content Scrollable */
 @media (min-width: 992px) {
-  html, body {
+
+  html,
+  body {
     overflow: hidden;
     height: 100vh;
   }
@@ -124,7 +126,9 @@
 
 /* Tablet & Mobile (< 992px) */
 @media (max-width: 991px) {
-  html, body {
+
+  html,
+  body {
     overflow-x: hidden;
     overflow-y: auto;
   }

@@ -340,15 +340,6 @@ app.delete('/api/projects/:id', authenticateAdmin, (req, res) => {
   });
 });
 
-// Serve React production build if available (e.g., on Render or production deployment)
-const buildPath = path.join(__dirname, '..', 'build');
-if (fs.existsSync(buildPath)) {
-  app.use(express.static(buildPath));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(buildPath, 'index.html'));
-  });
-}
-
 // Start Server
 app.listen(PORT, () => {
   console.log(`Portfolio backend server running on http://localhost:${PORT}`);

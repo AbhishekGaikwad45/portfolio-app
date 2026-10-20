@@ -21,7 +21,7 @@ import { resolveAssetUrl } from '../../services/api';
 
 function Layout() {
   const [activeComponent, setActiveComponent] = useState("Home");
-  const { portfolio, isAuthenticated } = usePortfolio();
+  const { portfolio } = usePortfolio();
 
   const profile = portfolio?.profile || {};
   const photoUrl = profile.profilePhotoUrl ? resolveAssetUrl(profile.profilePhotoUrl) : defaultLogo;
