@@ -1,31 +1,76 @@
-p{
-    color: white;
+/* About.css - Responsive for Mobile, Tablet, Laptop, and Desktop */
+
+p {
+  color: #e2e8f0;
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  line-height: 1.7;
 }
-h1{
-    color: white;
+
+h1 {
+  color: white;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 20px;
 }
-.row{
-    color: white;
-    font-size: 20px;
+
+h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 600;
+  margin-top: 25px;
+  margin-bottom: 15px;
 }
-.col-6 li{
-    border: 1px solid white;
-    margin-top: 10px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 4px 2px 0px 0px white;
-    cursor: pointer;
+
+.row {
+  color: white;
 }
-ul{
-    list-style-type: none;
+
+.col-6 li {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  margin-top: 12px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 4px 2px 0px 0px rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  padding: 10px 8px;
+  font-size: clamp(13px, 1.8vw, 17px);
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.25s ease;
+  word-break: break-word;
 }
-li:hover{
-   
-     transition: background-color 0.3s, color 0.3s;
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
 }
-.mainlogo{
-    height: 300px;
-    width: 500px;
-    margin-top: 50px;
-    border-radius: 10px;
+
+li:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-color: #ffdd00;
+  box-shadow: 4px 2px 0px 0px #ffdd00;
+  transform: translateY(-2px);
+}
+
+.mainlogo {
+  max-width: 100%;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  max-height: 320px;
+  object-fit: cover;
+  margin-top: 25px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 576px) {
+  .col-6 li {
+    padding: 7px 5px;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+
+  .mainlogo {
+    margin-top: 15px;
+  }
 }

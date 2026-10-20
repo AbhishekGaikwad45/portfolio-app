@@ -1,35 +1,33 @@
 import React from 'react';
 import './App.css';
-
-
-
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './Asset/Component/Layout';
-// import Home from './Asset/Component/Home';
-// import About from './Asset/Component/About';
-// import Projects from './Asset/Component/Projects';
-// import ContactForm from './Asset/Component/ContactForm';
-// import Navbar from './Asset/Component/Navbar';
-// import Footer from './Asset/Component/Footer';
+import AdminDashboard from './Asset/Component/Admin/AdminDashboard';
+import AdminLogin from './Asset/Component/Admin/AdminLogin';
+import ProtectedRoute from './Asset/Component/Admin/ProtectedRoute';
+import { PortfolioProvider } from './context/PortfolioContext';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        {/* <Navbar/> */}
-        <Layout/>
-        {/* <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<ContactForm />} />
-          
-        </Routes> 
-        <Footer/> */}
-      </BrowserRouter>
+      <PortfolioProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/login" element={<AdminLogin />} />
+            <Route path="/*" element={<Layout />} />
+          </Routes>
+        </BrowserRouter>
+      </PortfolioProvider>
     </div>
   );
 }
 
 export default App;
-
